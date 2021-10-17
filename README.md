@@ -22,15 +22,30 @@ It generates 9,955 images of  4-letter CAPTCHAs using a random mix of four diffe
 
 ## Architecture
 
-![architecture](https://i.imgur.com/npfKiCa.jpg)
+Ideally, we want to detect text from a text image:
+
+![architecture](https://i.imgur.com/dH3mK1H.png)
+
+However, character segmentation is not practical because:
+![architecture](https://i.imgur.com/AyUqcPp.png)
+* Too time comsuming
+* Too expensive 
+* Impossible in most cases
+
+For example, the above character segmentation is fine but the below one is challenging. In fact, the traditional method will face a problem where two or more characters are too close to each other like this:
+![architecture](https://i.imgur.com/jBbSJ19.png)
 
 This project will use state of the art CRNN model which is a combination of CNN, RNN and CTC loss for image-based sequence recognition tasks, specially OCR (Optical Character Recognition) task which is perfect for CAPTCHAs.
 
-This model is much more superior than traditional way which does not involve any bounding box detection for each character (character segmentation). In fact, the traditional method will face a problem where two or more characters are too close to each other like this:
+![architecture](https://i.imgur.com/npfKiCa.jpg)
 
-![problem](https://i.imgur.com/iAeMjBQ.png)
+This model is much more superior than traditional way which does not involve any bounding box detection for each character (character segmentation). 
 
 In this model, the image will be dissected by a fixed number of timesteps in the RNN layers so as long as each character is seperated by two or three parts to be processed and decoded later then the spacing between each character is irrelevant like so:
+
+![architecture](https://i.imgur.com/TOpXFan.png)
+
+Here is more details of CRNN architecture:
 
 ![architecture](https://i.imgur.com/7f1IU0Q.png)
 
@@ -51,10 +66,10 @@ Here is my result for a test set:
 
 ![result](https://i.imgur.com/CLAkqda.png)
 
-This is a easy dataset so I got perfect score for absolutely the test set! Not even a challenge for CRNN power with the perfect metrics:
-    * Character Error Rate: 0.0
-    * Word Error Rate:      0.0
-    * Sequence Error Rate:  0.0
+This is a easy dataset so I got absolutely perfect score for the test set! Not even a challenge for CRNN power:
+* Character Error Rate: 0.0
+* Word Error Rate:      0.0
+* Sequence Error Rate:  0.0
 
 ## Afterthought:
 - CRNN + CTC is not that challenging, just want sure we follow above process step by step like in the notebook
