@@ -96,4 +96,8 @@ But you should stick with the basics!
     + calculate the max width of all resized images
     + padding to all images to that max width
 - Combine the logic of preprocessing of train set and test set together
-- Convert them to tfdataset pipeline (note that it is challenging since OpenCV won't work with tensor)
+- Convert them to tfdataset pipeline (note that it is challenging since OpenCV won't work with tensor)\
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details
