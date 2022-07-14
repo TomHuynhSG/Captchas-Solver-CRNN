@@ -101,3 +101,6 @@ But you should stick with the basics!
 ## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details
+
+## 🏆 Author
+- Huynh Nguyen Minh Thong - tomhuynhsg@gmail.com
